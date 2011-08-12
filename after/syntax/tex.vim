@@ -38,3 +38,29 @@ syn region texTheoremModifier	contained	matchgroup=Delimiter start="\[" end="]" 
 
 highlight link texTheoremModifier Normal
 highlight link texTheoremNameString texSection
+
+
+" Let \lstinline[language=C++]// let work similarly to \verb//
+if exists("g:tex_verbspell") && g:tex_verbspell
+ if version < 600
+  syn region texZone		start="\\lstinline\(\[[^][]*\]\)\?`"			end="`\|%stopzone\>"			contains=@Spell
+  syn region texZone		start="\\lstinline\(\[[^][]*\]\)\?#"			end="#\|%stopzone\>"			contains=@Spell
+ else
+   if b:tex_stylish
+    syn region texZone		start="\\lstinline\(\[[^][]*\]\)\?\z([^\ta-zA-Z@]\)"	end="\z1\|%stopzone\>"			contains=@Spell
+   else
+    syn region texZone		start="\\lstinline\(\[[^][]*\]\)\?\z([^\ta-zA-Z]\)"	end="\z1\|%stopzone\>"			contains=@Spell
+   endif
+ endif
+else
+ if version < 600
+  syn region texZone		start="\\lstinline\(\[[^][]*\]\)\?`"			end="`\|%stopzone\>"
+  syn region texZone		start="\\lstinline\(\[[^][]*\]\)\?#"			end="#\|%stopzone\>"
+ else
+   if b:tex_stylish
+     syn region texZone		start="\\lstinline\(\[[^][]*\]\)\?\z([^\ta-zA-Z@]\)"	end="\z1\|%stopzone\>"
+   else
+     syn region texZone		start="\\lstinline\(\[[^][]*\]\)\=\z([^\ta-zA-Z]\)"	end="\z1\|%stopzone\>"
+   endif
+ endif
+endif
