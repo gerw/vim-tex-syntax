@@ -12,7 +12,7 @@ syn clear texRefZone
 
 syn region texRefZone		matchgroup=texStatement start="\\nocite{"		end="}\|%stopzone\>"	contains=@texRefGroup
 syn region texRefZone		matchgroup=texStatement start="\\bibliography{"		end="}\|%stopzone\>"	contains=@texRefGroup
-syn region texRefZone		matchgroup=texStatement start="\\label{"		end="}\|%stopzone\>"	contains=@texRefGroup
+syn region texRefZone		matchgroup=texStatement start="\\\%(my\)\?label{"		end="}\|%stopzone\>"	contains=@texRefGroup
 syn region texRefZone		matchgroup=texStatement start="\\\%(page\|eq\|v\|\)ref{"	end="}\|%stopzone\>"	contains=@texRefGroup
 
 syn match  texStatement		'\\cite\%([tp]\*\=\)\=\ze\%({\|\[\)' nextgroup=texRefOption,texCite
