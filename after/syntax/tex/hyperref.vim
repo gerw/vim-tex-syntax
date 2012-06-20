@@ -1,5 +1,5 @@
 " Additional \ref-commands:
-syn region texRefZone		matchgroup=texStatement start="\\\(my\|page\|eq\|name\|citeauto\|auto\|autopage\|v\|\)ref\*\={"	end="}\|%stopzone\>"	contains=@texRefGroup
+syn region texRefZone		matchgroup=texStatement start="\\\(my\|page\|eq\|name\|citeauto\|citeeq\|auto\|autopage\|v\|\)ref\*\={"	end="}\|%stopzone\>"	contains=@texRefGroup
 
 " For the \hyperref[some_label]{some_text}
 syn match  texStatement		'\\hyperref\ze\[' nextgroup=texHyperrefOption,texHyperref
