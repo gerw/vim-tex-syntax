@@ -24,8 +24,8 @@ hi link texRefZone Identifier
 
 
 " Add spell for \begin{lemma}[some text]
-" If the SectionName contains some theorem-like string:
-syn match texSectionName	"{\(lemma\|definition\|theorem\|remark\|assumption\|corollary\|proposition\)}" contained	nextgroup=texTheoremModifier	contains=texTheoremNameString
+" If the texBeginEndName contains some theorem-like string:
+syn match texBeginEndName	"{\(lemma\|definition\|theorem\|remark\|assumption\|corollary\|proposition\)}" contained	nextgroup=texTheoremModifier	contains=texTheoremNameString
 " Correct coloring of the braced string:
 syn region texTheoremNameString matchgroup=Delimiter start="{" end="}" contained
 " Add spell checking in the optional parameter:
