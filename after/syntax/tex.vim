@@ -6,6 +6,7 @@ syn cluster texMatchGroup add=texNoSpellCommand
 syn match texNoSpellCommand "\\\(email\|address\|urladdr\){.\{-}}"	contains=texStatement,texInputCurlies
 
 " Fix highlight of ref/cite
+" CHECK: What is actully fixed here?
 syn clear texRefOption
 syn clear texCite
 syn clear texRefZone
