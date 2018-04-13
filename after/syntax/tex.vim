@@ -19,10 +19,6 @@ syn match  texStatement		'\\cite\%([tp]\*\=\)\=\ze\%({\|\[\)' nextgroup=texRefOp
 syn region texRefOption	contained	matchgroup=Delimiter start='\[' end=']'		contains=@texMatchGroup	nextgroup=texRefOption,texCite
 syn region texCite	contained	matchgroup=texStatement start='{' end='}'		contains=@texRefGroup
 
-" Due to the concealment in vim 7.3 some things has ugly highlight:
-syn cluster texMathZoneGroup	remove=texGreek,texSuperscript,texSubscript,texMathSymbol
-syn cluster texMathMatchGroup	remove=texGreek,texSuperscript,texSubscript,texMathSymbol
-
 " Better highlighting of names of references
 hi link texRefZone Identifier
 
