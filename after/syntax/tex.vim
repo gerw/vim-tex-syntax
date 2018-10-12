@@ -16,7 +16,7 @@ syn region texRefZone		matchgroup=texStatement start="\\bibliography{"		end="}\|
 syn region texRefZone		matchgroup=texStatement start="\\\%(my\)\?label{"		end="}\|%stopzone\>"	contains=@texRefGroup
 syn region texRefZone		matchgroup=texStatement start="\\\%(page\|eq\|v\|\)ref{"	end="}\|%stopzone\>"	contains=@texRefGroup
 
-syn match  texStatement		'\\cite\%([tp]\*\=\)\=\ze\%({\|\[\)' nextgroup=texRefOption,texCite
+syn match  texStatement		'\\\%(paren\)\?cite\%([tp]\*\=\)\=\ze\%({\|\[\)' nextgroup=texRefOption,texCite
 syn region texRefOption	contained	matchgroup=Delimiter start='\[' end=']'		contains=@texMatchGroup	nextgroup=texRefOption,texCite
 syn region texCite	contained	matchgroup=texStatement start='{' end='}'		contains=@texRefGroup
 
